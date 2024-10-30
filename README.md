@@ -8,7 +8,10 @@
 
 -Se abre la terminal en la nueva carpeta.
 
--Creamos la cuenta de Github y usamos el comando: git config --global user.email "correo" y git config --global user.name "Nombre"
+-Creamos la cuenta de Github y usamos el comando: 
+    git config --global user.email "correo"
+    
+    git config --global user.name "Nombre"
 
 -Usamos los siguientes comando:
 
@@ -43,18 +46,26 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 ## COMANDOS UTILES
 
--Iniciar git:   git init
+-Iniciar git:
+    git init
 
--Añadir un archivo: git add README.md
+-Añadir un archivo: 
+    git add README.md
 
--Añadir todos los archivos: git add .
+-Añadir todos los archivos: 
+    git add .
 
--Registrar cambio:  git commit -m "TEXTO"
+-Registrar cambio:  
+    git commit -m "TEXTO"
 
--Subir los cambios: git push
+-Subir los cambios: 
+    git push
 
--Bajar los cambios que otros han hecho: git pull
+-Bajar los cambios que otros han hecho: 
+    git pull
 
--Añadir una conexion al repositorio: git remote add origin https://github.com/Satte003/inteligencia-artificial
+-Añadir una conexion al repositorio: 
+    git remote add origin https://github.com/Satte003/inteligencia-artificial
 
--Asentar una rama en la que subir los cambios:  git push -u origin main
+-Asentar una rama en la que subir los cambios:  
+    git push -u origin main
