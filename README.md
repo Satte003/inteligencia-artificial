@@ -21,7 +21,7 @@
 
     git clone https://github.com/Satte003/inteligencia-artificial.git
 
-    git push -u origin main
+    git push --set-upstream origin main
 
 Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamos como rama principal "master". Esto creara una carpeta dentro de la propia carpeta. La mas interio, la llamada "inteligencia-artificial" podemos borrarla. Pero recordad antes sacar sus archivos a la otra carpeta.
 
