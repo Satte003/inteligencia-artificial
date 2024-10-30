@@ -12,7 +12,7 @@
     git init
     git remote add origin https://github.com/Satte003/inteligencia-artificial.git
     git clone https://github.com/Satte003/inteligencia-artificial.git
-    git push -u origin master
+    git push -u origin main
 
 Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamos como rama principal "master". Esto creara una carpeta dentro de la propia carpeta. La mas interio, la llamada "inteligencia-artificial" podemos borrarla. Pero recordad antes sacar sus archivos a la otra carpeta.
 
@@ -45,4 +45,4 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 -Añadir una conexion al repositorio: git remote add origin https://github.com/Satte003/inteligencia-artificial
 
--Asentar una rama en la que subir los cambios:  git push -u origin master
+-Asentar una rama en la que subir los cambios:  git push -u origin main
