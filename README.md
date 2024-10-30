@@ -18,7 +18,10 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 -Tras esto ya podemos crear y editar archivos.
 
-#Como subir la modificacion de un archivo
+
+## Como subir la modificacion de un archivo
+
+-Usa 'git pull' para bajar los cambios que han hecho otras personas.
 
 -Realiza los cambios en el archivo.
 
@@ -31,6 +34,7 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 -Una vez hemos hecho el commit usamos 'git push' Si da error puede ser que no se ha definido la rama principal'
 
+
 ## COMANDOS UTILES
 
 -Iniciar git:   git init
@@ -42,6 +46,8 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 -Registrar cambio:  git commit -m "TEXTO"
 
 -Subir los cambios: git push
+
+-Bajar los cambios que otros han hecho: git pull
 
 -Añadir una conexion al repositorio: git remote add origin https://github.com/Satte003/inteligencia-artificial
 
