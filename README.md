@@ -1,4 +1,4 @@
-## inteligencia-artificial
+# inteligencia-artificial
 
 ## Empezar
 
@@ -34,15 +34,10 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 ## COMANDOS UTILES
 
 -Iniciar git:   git init
-
 -Añadir un archivo: git add README.md
-
 -Añadir todos los archivos: git add .
-
 -Registrar cambio:  git commit -m "TEXTO"
-
 -Subir los cambios: git push
 
 -Añadir una conexion al repositorio: git remote add origin https://github.com/Satte003/inteligencia-artificial
-
 -Asentar una rama en la que subir los cambios:  git push -u origin master
