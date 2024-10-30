@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # inteligencia-artificial
 
 ## Empezar
@@ -48,8 +47,3 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 -Asentar una rama en la que subir los cambios:  git push -u origin master
 
-=======
-# inteligencia-artificial
-
-prueba hola
->>>>>>> 7d0a5fb (prueba2)
