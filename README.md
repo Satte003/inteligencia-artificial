@@ -82,3 +82,5 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 -Cambiar a otra rama (en caso de que estes en master):
 
     git checkout main
+
+a
