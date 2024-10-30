@@ -77,3 +77,7 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 -Asentar una rama en la que subir los cambios:  
 
     git push -u origin main
+
+-Cambiar a otra rama (en caso de que estes en master):
+
+    git checkout main
