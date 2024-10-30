@@ -8,7 +8,8 @@
 
 -Se abre la terminal en la nueva carpeta.
 
--Creamos la cuenta de Github y usamos el comando: 
+-Creamos la cuenta de Github y usamos el comando:
+
     git config --global user.email "correo"
     
     git config --global user.name "Nombre"
