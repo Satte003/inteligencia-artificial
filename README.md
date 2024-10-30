@@ -27,7 +27,7 @@ Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamo
 
 ## Como subir la modificacion de un archivo
 
--Usa 'git pull' para bajar los cambios que han hecho otras personas.
+-Antes de comenzar a editar o modificar un archivo ya subido usamos 'git pull' para bajar los cambios que han hecho otras personas.
 
 -Realiza los cambios en el archivo.
 
