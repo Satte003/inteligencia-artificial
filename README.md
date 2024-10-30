@@ -8,10 +8,16 @@
 
 -Se abre la terminal en la nueva carpeta.
 
+-Creamos la cuenta de Github y usamos el comando: git config --global user.email "correo" y git config --global user.name "Nombre"
+
 -Usamos los siguientes comando:
+
     git init
+
     git remote add origin https://github.com/Satte003/inteligencia-artificial.git
+
     git clone https://github.com/Satte003/inteligencia-artificial.git
+
     git push -u origin main
 
 Com esto iniciamos git, nos conectamos al repositorio, lo clonamos y determinamos como rama principal "master". Esto creara una carpeta dentro de la propia carpeta. La mas interio, la llamada "inteligencia-artificial" podemos borrarla. Pero recordad antes sacar sus archivos a la otra carpeta.
