@@ -4,13 +4,13 @@
 
 Cada vez que se hace una función en el .c hay que añadirla en su correspondiente .h (a excepción del Main)
 
-- Main
+- Main **??**
 
-- Distancia (K-NN) **E**
+- Distancia (K-NN) **??**
 
-- Éxito
+- Éxito **??**
 
-- Parámetros de entrada para éxito
+- Parámetros de entrada para éxito **??**
 
 - Estructura de datos **P**
 
@@ -19,29 +19,37 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 ## Presentación (provisional)
 
-- Diapositivas (capturas del código, resultado del progama)
+- Diapositivas: crear, organizar **E**
 
-- Guión (explicación del código)
+- Diapositivas: capturas del código, resultado del progama **??**
+
+- Guión (explicación del código) **??**
 
 
 # REPARTO
 
 ## EMMA
 
+- Diapositivas: crear, organizar
+
 - 
-- 
+
 - 
 
 ## AITOR
 
 - 
+
 - 
+
 - 
 
 ## VITOR
 
 - 
+
 - 
+
 - 
 
 ## PABLO
