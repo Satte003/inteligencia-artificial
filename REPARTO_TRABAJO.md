@@ -12,7 +12,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Parámetros de entrada para éxito
 
-- Estructura de dato **P**
+- Estructura de datos **P**
 
 - Makefile **P**
 
