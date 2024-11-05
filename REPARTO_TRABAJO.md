@@ -6,7 +6,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Main
 
-- Distancia (K-NN)
+- Distancia (K-NN) **E**
 
 - Éxito
 
