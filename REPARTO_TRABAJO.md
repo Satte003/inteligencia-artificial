@@ -12,7 +12,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Parámetros de entrada para éxito
 
-- Estructura de dato (cola) **P**
+- Estructura de datos **P**
 
 - Makefile **P**
 
@@ -46,6 +46,6 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 ## PABLO
 
-- Estructura de dato
+- Estructura de datos
 
 - Makefile
