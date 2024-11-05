@@ -5,7 +5,7 @@ typedef struct cancion {
     
     char *track_name; //Puede que no haga falta
     char *artist_name; 
-    char *artist_count;
+    int artist_count;
     int release_month;
     int released_day;
 
@@ -19,4 +19,4 @@ typedef struct cancion {
     int energy;
     int acusticness;
     int liveness;
-}cancion;
+}ancion;

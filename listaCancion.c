@@ -46,7 +46,6 @@ void añadirFinal (listaCancion *c, tipoelemento elem, int id){
 
 void eliminarPorIndice (listaCancion * c, int id){
     listaCancion recorrido;
-    Nodo *aux;
 
     nuevaLista(&recorrido);
     recorrido=*c;
@@ -61,9 +60,7 @@ void eliminarPorIndice (listaCancion * c, int id){
 
         if(!esVaciaLista(recorrido)){
             if(recorrido.ini->id==id){
-                aux=recorrido.ini;
-                recorrido.ini=recorrido.ini->sig;
-                free(aux);
+                desenlistarInicio(&recorrido);
             } else {
                 perror("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
                 exit(-1);
@@ -97,12 +94,12 @@ tipoelemento buscarPorIndice (listaCancion c, int id){
     }
 }
 
-int buscarPorElemento (listaCancion *c, tipoelemento elem){
+int buscarPorElemento (listaCancion c, tipoelemento elem){
     listaCancion *recorrido;
-    nuevaLista(&recorrido);
-    recorrido=c;
+    nuevaLista(recorrido);
+    recorrido=&c;
     
-    if(esVaciaLista(*c)){
+    if(esVaciaLista(c)){
         perror("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
         exit(-1);
     } else {
@@ -164,7 +161,7 @@ int sacaIdPrimero (listaCancion c){
     }
 }
 
-int sacaIdFInal (listaCancion c){
+int sacaIdFinal (listaCancion c){
     if(esVaciaLista(c)){
         perror("ERROR: Intentando sacar el ultimo id de una lista vacia.\n");
         exit(-1);
