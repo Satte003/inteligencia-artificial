@@ -1,6 +1,6 @@
-## TO DO
+# TO DO
 
-# Código
+## Código
 
 Cada vez que se hace una función en el .c hay que añadirla en su correspondiente .h (a excepción del Main)
 
@@ -17,34 +17,34 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 - Makefile **P**
 
 
-# Presentación (provisional)
+## Presentación (provisional)
 
 - Diapositivas (capturas del código, resultado del progama)
 
 - Guión (explicación del código)
 
 
-## REPARTO
+# REPARTO
 
-# EMMA
-
-- 
-- 
-- 
-
-# AITOR
+## EMMA
 
 - 
 - 
 - 
 
-# VITOR
+## AITOR
 
 - 
 - 
 - 
 
-# PABLO
+## VITOR
+
+- 
+- 
+- 
+
+## PABLO
 
 - Estructura de dato
 
