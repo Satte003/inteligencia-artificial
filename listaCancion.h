@@ -18,18 +18,22 @@ void nuevaLista (listaCancion *);
 
 bool esVaciaLista (listaCancion);
 
-void añadir (listaCancion *, tipoelemento);
+void añadirInicio (listaCancion *, tipoelemento, int);
+
+void añadirFinal (listaCancion *, tipoelemento, int);
 
 void eliminarPorIndice (listaCancion *, int);
 
-void buscarPorIndice (listaCancion *, int);
+tipoelemento buscarPorIndice (listaCancion, int);
 
-void eliminarPorElemento (listaCancion *, tipoelemento);
+int buscarPorElemento (listaCancion, tipoelemento);
 
-void buscarPorElemento (listaCancion *, tipoelemento);
-
-void desenlistar (listaCancion *);
+void desenlistarInicio (listaCancion *);
 
 tipoelemento primero (listaCancion);
 
 tipoelemento ultimo (listaCancion);
+
+int sacaIdPrimero (listaCancion);
+
+int sacaIdFinal (listaCancion);
