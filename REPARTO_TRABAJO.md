@@ -46,6 +46,6 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 ## PABLO
 
-- Estructura de dato
+- Estructura de datos
 
 - Makefile
