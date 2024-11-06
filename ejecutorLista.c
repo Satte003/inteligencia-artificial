@@ -7,10 +7,11 @@ tipoelemento introducirElemento ();
 void imprimirElemento (tipoelemento);
 
 int main(){
-	tipoelemento elem;
+	tipoelemento elem, nulo;
 	listaCancion lista;
 	int opcion,id;
-	
+
+	nulo=crearNulo(nulo);
 	nuevaLista(&lista);
 	do
     {
@@ -50,12 +51,16 @@ int main(){
                 printf("Introduce un id: ");
                 scanf("%d", &id);
 				elem=buscarPorIndice(lista,id);
-                imprimirElemento(elem);
+				if(esIgualElemento(elem, nulo)){
+					imprimirElemento(elem);
+				}
 				break;
 			case 5:
                 elem=introducirElemento();
 				id=buscarPorElemento(lista,elem);
-                printf("El id del elemento es: %d\n",id);
+				if(id!=0){
+					printf("El id del elemento es: %d\n",id);
+				}
 				break;
 			case 6:
 				desenlistarInicio(&lista);

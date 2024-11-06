@@ -60,10 +60,8 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Makefile
 
-En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal
+En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal.
 
-eliminarPorIndice funciona bien pero cuando se mete un indice que no existe da error en "while(recorrido.ini->id!=id && !esVaciaLista(recorrido)){"
+buscarPorIndice al meter un valor distinto saca el ultimo.
 
-buscarPorIndice da error al buscar un elemento existente "ERROR: Indice no ha obtenido un id igual y no se ha acabado la lista: No error"
-
-buscarPorElemento da error al buscar un elemento existente "ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista: No error"
+buscarPorElemento al meter un valor que no existe saca el ultimo que se metio

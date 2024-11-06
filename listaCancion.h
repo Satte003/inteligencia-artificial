@@ -37,3 +37,7 @@ tipoelemento ultimo (listaCancion);
 int sacaIdPrimero (listaCancion);
 
 int sacaIdFinal (listaCancion);
+
+tipoelemento crearNulo (tipoelemento);
+
+bool esIgualElemento (tipoelemento, tipoelemento);

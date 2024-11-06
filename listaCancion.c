@@ -49,7 +49,9 @@ void añadirFinal (listaCancion *c, tipoelemento elem, int id){
 void eliminarPorIndice (listaCancion * c, int id){
     listaCancion recorrido;
     Nodo *ant, *aux;
+    bool encontrado;
 
+    encontrado=false;
     ant = (Nodo *)malloc(sizeof(Nodo));
     aux = (Nodo *)malloc(sizeof(Nodo));
     nuevaLista(&recorrido);
@@ -59,13 +61,17 @@ void eliminarPorIndice (listaCancion * c, int id){
         printf("ERROR: Intentando eliminar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido.ini->id!=id && !esVaciaLista(recorrido)){
-            ant=recorrido.ini;
-            recorrido.ini=recorrido.ini->sig;
+        while(!esVaciaLista(recorrido) && !encontrado){
+            if(recorrido.ini->id!=id){
+              ant=recorrido.ini;
+             recorrido.ini=recorrido.ini->sig;  
+            } else {
+                encontrado=true;
+            }
         }
 
         if(!esVaciaLista(recorrido)){
-            if(recorrido.ini->id==id){
+            if(encontrado){
                 aux=recorrido.ini;
                 if (recorrido.ini==c->ini && recorrido.ini==c->fin){
                     c->ini=NULL;
@@ -80,9 +86,11 @@ void eliminarPorIndice (listaCancion * c, int id){
                     free(aux);
                 }              
             } else {
-                printf("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista\n");
                 exit(-1);
             }
+        } else {
+            printf("No se ha encontrado ningun elemento con ese id.\n");
         }
     }
 
@@ -93,7 +101,11 @@ void eliminarPorIndice (listaCancion * c, int id){
 
 tipoelemento buscarPorIndice (listaCancion c, int id){
     Nodo *recorrido;
+    tipoelemento nulo;
+    bool encontrado;
 
+    nulo=crearNulo(nulo);
+    encontrado=false;
     recorrido = (Nodo *)malloc(sizeof(Nodo));
     recorrido=c.ini;
 
@@ -101,24 +113,33 @@ tipoelemento buscarPorIndice (listaCancion c, int id){
         printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido->id!=id && recorrido!=NULL){
-            recorrido=recorrido->sig;
+        while(recorrido!=NULL && !encontrado){
+            if(recorrido->id!=id){
+                recorrido=recorrido->sig;
+            } else {
+                encontrado=true;
+            }
         }
 
         if(recorrido!=NULL){
-            if(recorrido->id==id){
+            if(encontrado){
                 return(recorrido->elem);
             } else {
-                printf("ERROR: buscarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: buscarPorIndice no ha obtenido un id igual y no se ha acabado la lista\n");
                 exit(-1);
             }
+        } else {
+            printf("No existe ningun elemento con ese id.\n");
+            return(nulo);
         }
     }
 }
 
 int buscarPorElemento (listaCancion c, tipoelemento elem){
     Nodo *recorrido;
+    bool encontrado;
 
+    encontrado=false;
     recorrido = (Nodo *)malloc(sizeof(Nodo));
     recorrido=c.ini;
     
@@ -126,17 +147,24 @@ int buscarPorElemento (listaCancion c, tipoelemento elem){
         printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
         exit(-1);
     } else {
-        while(esMismaCancion(recorrido->elem, elem) && recorrido!=NULL){
-            recorrido=recorrido->sig;
+        while(recorrido!=NULL && !encontrado){
+            if(esMismaCancion(recorrido->elem, elem)){
+               recorrido=recorrido->sig; 
+            } else {
+                encontrado = true;
+            }
         }
 
         if(recorrido!=NULL){
-            if(esMismaCancion(recorrido->elem, elem)){
+            if(encontrado){
                 return(recorrido->id);
             } else {
-                printf("ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista\n");
                 exit(-1);
             }
+        } else {
+            printf("No se ha encontrado ningun id de dicho elemento\n");
+            return(0);
         }
     }
 }
@@ -191,4 +219,27 @@ int sacaIdFinal (listaCancion c){
     } else {
         return(c.fin->id);
     }
+}
+
+tipoelemento crearNulo (tipoelemento elem){
+    elem.acusticness=-1;
+    elem.artist_count=-1;
+    *elem.artist_name='N';
+    elem.bpm=-1;
+    elem.danceability=-1;
+    elem.energy=-1;
+    elem.liveness=-1;
+    elem.release_month=-1;
+    elem.released_day=-1;
+    elem.spotify_charts=-1;
+    elem.spotify_playlists=-1;
+    elem.streams=-1;
+    *elem.track_name='N';
+    elem.valence=-1;
+
+    return(elem);
+}
+
+bool esIgualElemento (tipoelemento elem1, tipoelemento elem2){
+    return(elem1.acusticness==elem2.acusticness && elem1.artist_count==elem2.artist_count && elem1.artist_name==elem2.artist_name && elem1.bpm==elem2.bpm && elem1.danceability==elem2.danceability && elem1.energy==elem2.energy && elem1.liveness==elem2.liveness && elem1.release_month==elem2.release_month && elem1.released_day==elem2.released_day && elem1.spotify_charts==elem2.spotify_charts && elem1.spotify_playlists==elem2.spotify_playlists && elem1.streams==elem2.streams && elem1.track_name==elem2.track_name && elem1.valence==elem2.valence);
 }
