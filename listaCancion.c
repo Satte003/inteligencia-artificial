@@ -59,7 +59,7 @@ void eliminarPorIndice (listaCancion * c, int id){
         printf("ERROR: Intentando eliminar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido.ini->id!=id || !esVaciaLista(recorrido)){
+        while(recorrido.ini->id!=id && !esVaciaLista(recorrido)){
             ant=recorrido.ini;
             recorrido.ini=recorrido.ini->sig;
         }
@@ -101,7 +101,7 @@ tipoelemento buscarPorIndice (listaCancion c, int id){
         printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido->id!=id || recorrido!=NULL){
+        while(recorrido->id!=id && recorrido!=NULL){
             recorrido=recorrido->sig;
         }
 
@@ -126,7 +126,7 @@ int buscarPorElemento (listaCancion c, tipoelemento elem){
         printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
         exit(-1);
     } else {
-        while(esMismaCancion(recorrido->elem, elem) || recorrido!=NULL){
+        while(esMismaCancion(recorrido->elem, elem) && recorrido!=NULL){
             recorrido=recorrido->sig;
         }
 
