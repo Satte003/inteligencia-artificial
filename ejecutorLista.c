@@ -67,30 +67,36 @@ int main(){
             case 8:
                 elem=ultimo(lista);
                 imprimirElemento(elem);
+				break;
             case 9:
                 id=sacaIdPrimero(lista);
                 printf("El id del elemento es: %d\n",id);
+				break;
             case 10:
                 id=sacaIdFinal(lista);
                 printf("El id del elemento es: %d\n",id);
+				break;
 		}
 	}while(opcion<11);
 }
 
 
 tipoelemento introducirElemento (){
-    tipoelemento *cancion;
+    tipoelemento cancion;
+	nuevaCancion(&cancion);
 
-    cancion->track_name="Hola";
-    cancion->artist_name="Pepe";
+	printf("Introduce el nombre de la cancion: ");
+    scanf("%99s", cancion.track_name);
+	printf("Introduce el nombre del artista: ");
+    scanf("%99s", cancion.artist_name);
     printf("Introduce el numero de artistas: ");
-    scanf("%d", cancion->artist_count);
+    scanf("%d", &cancion.artist_count);
     printf("Introduce el mes en el que se saco: ");
-    scanf("%d", cancion->release_month);
+    scanf("%d", &cancion.release_month);
     printf("Introduce el dia en el que se saco: ");
-    scanf("%s", cancion->released_day);
+    scanf("%d", &cancion.released_day);
 
-    return(*cancion);
+    return(cancion);
 }
 
 void imprimirElemento (tipoelemento elem){
@@ -98,5 +104,5 @@ void imprimirElemento (tipoelemento elem){
     printf("Nombre del artista: %s\n", elem.artist_name);
     printf("Numero de artistas: %d\n", elem.artist_count);
     printf("Mes en el que salio: %d\n", elem.release_month);
-    printf("Dia en el que se saco: %s\n", elem.released_day);
+    printf("Dia en el que se saco: %d\n", elem.released_day);
 }

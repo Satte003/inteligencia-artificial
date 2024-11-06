@@ -14,6 +14,7 @@ bool esVaciaLista (listaCancion c){
 
 void añadirInicio (listaCancion *c, tipoelemento elem, int id){
     Nodo *aux;
+    aux = (Nodo *)malloc(sizeof(Nodo));
 
     aux->elem=elem;
     aux->id=id;
@@ -30,6 +31,7 @@ void añadirInicio (listaCancion *c, tipoelemento elem, int id){
 
 void añadirFinal (listaCancion *c, tipoelemento elem, int id){
     Nodo *aux;
+    aux = (Nodo *)malloc(sizeof(Nodo));
 
     aux->elem=elem;
     aux->id=id;
@@ -46,48 +48,68 @@ void añadirFinal (listaCancion *c, tipoelemento elem, int id){
 
 void eliminarPorIndice (listaCancion * c, int id){
     listaCancion recorrido;
+    Nodo *ant, *aux;
 
+    ant = (Nodo *)malloc(sizeof(Nodo));
+    aux = (Nodo *)malloc(sizeof(Nodo));
     nuevaLista(&recorrido);
     recorrido=*c;
     
     if(esVaciaLista(*c)){
-        perror("ERROR: Intentando eliminar un elemento de una lista vacia, dado el indice.\n");
+        printf("ERROR: Intentando eliminar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido.ini->id!=id && !esVaciaLista(recorrido)){
+        while(recorrido.ini->id!=id || !esVaciaLista(recorrido)){
+            ant=recorrido.ini;
             recorrido.ini=recorrido.ini->sig;
         }
 
         if(!esVaciaLista(recorrido)){
             if(recorrido.ini->id==id){
-                desenlistarInicio(&recorrido);
+                aux=recorrido.ini;
+                if (recorrido.ini==c->ini && recorrido.ini==c->fin){
+                    c->ini=NULL;
+                    c->fin=NULL;
+                    free(aux);
+                } else if(recorrido.ini->sig==NULL){
+                    ant->sig=NULL;
+                    c->fin=ant;
+                    free(aux);
+                } else {
+                    ant->sig=recorrido.ini->sig;
+                    free(aux);
+                }              
             } else {
-                perror("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
                 exit(-1);
             }
         }
     }
+
+    if(esVaciaLista(*c)){
+            c->fin=NULL;
+    }
 }
 
 tipoelemento buscarPorIndice (listaCancion c, int id){
-    listaCancion recorrido;
+    Nodo *recorrido;
 
-    nuevaLista(&recorrido);
-    recorrido=c;
+    recorrido = (Nodo *)malloc(sizeof(Nodo));
+    recorrido=c.ini;
 
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando buscar un elemento de una lista vacia, dado el indice.\n");
+        printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el indice.\n");
         exit(-1);
     } else {
-        while(recorrido.ini->id!=id && !esVaciaLista(recorrido)){
-            recorrido.ini=recorrido.ini->sig;
+        while(recorrido->id!=id || recorrido!=NULL){
+            recorrido=recorrido->sig;
         }
 
-        if(!esVaciaLista(recorrido)){
-            if(recorrido.ini->id==id){
-                return(recorrido.ini->elem);
+        if(recorrido!=NULL){
+            if(recorrido->id==id){
+                return(recorrido->elem);
             } else {
-                perror("ERROR: buscarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: buscarPorIndice no ha obtenido un id igual y no se ha acabado la lista");
                 exit(-1);
             }
         }
@@ -95,23 +117,24 @@ tipoelemento buscarPorIndice (listaCancion c, int id){
 }
 
 int buscarPorElemento (listaCancion c, tipoelemento elem){
-    listaCancion *recorrido;
-    nuevaLista(recorrido);
-    recorrido=&c;
+    Nodo *recorrido;
+
+    recorrido = (Nodo *)malloc(sizeof(Nodo));
+    recorrido=c.ini;
     
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
+        printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
         exit(-1);
     } else {
-        while(&recorrido->ini->elem!=&elem && !esVaciaLista(*recorrido)){
-            recorrido->ini=recorrido->ini->sig;
+        while(esMismaCancion(recorrido->elem, elem) || recorrido!=NULL){
+            recorrido=recorrido->sig;
         }
 
-        if(!esVaciaLista(*recorrido)){
-            if(&recorrido->ini->elem==&elem){
-                return(recorrido->ini->id);
+        if(recorrido!=NULL){
+            if(esMismaCancion(recorrido->elem, elem)){
+                return(recorrido->id);
             } else {
-                perror("ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista");
+                printf("ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista");
                 exit(-1);
             }
         }
@@ -121,10 +144,10 @@ int buscarPorElemento (listaCancion c, tipoelemento elem){
 void desenlistarInicio (listaCancion *c){
     Nodo *aux;
     if(esVaciaLista(*c)){
-        perror("ERROR: Intentando desenlistar el primer elemento de una lista vacia.\n");
+        printf("ERROR: Intentando desenlistar el primer elemento de una lista vacia.\n");
         exit(-1);
     } else {
-        c->ini=aux;
+        aux=c->ini;
         c->ini=c->ini->sig;
         free(aux);
 
@@ -136,7 +159,7 @@ void desenlistarInicio (listaCancion *c){
 
 tipoelemento primero (listaCancion c){
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando sacar el primer elemento de una lista vacia.\n");
+        printf("ERROR: Intentando sacar el primer elemento de una lista vacia.\n");
         exit(-1);
     } else {
         return(c.ini->elem);
@@ -145,7 +168,7 @@ tipoelemento primero (listaCancion c){
 
 tipoelemento ultimo (listaCancion c){
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando sacar el ultimo elemento de una lista vacia.\n");
+        printf("ERROR: Intentando sacar el ultimo elemento de una lista vacia.\n");
         exit(-1);
     } else {
         return(c.fin->elem);
@@ -154,7 +177,7 @@ tipoelemento ultimo (listaCancion c){
 
 int sacaIdPrimero (listaCancion c){
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando sacar el primer id de una lista vacia.\n");
+        printf("ERROR: Intentando sacar el primer id de una lista vacia.\n");
         exit(-1);
     } else {
         return(c.ini->id);
@@ -163,7 +186,7 @@ int sacaIdPrimero (listaCancion c){
 
 int sacaIdFinal (listaCancion c){
     if(esVaciaLista(c)){
-        perror("ERROR: Intentando sacar el ultimo id de una lista vacia.\n");
+        printf("ERROR: Intentando sacar el ultimo id de una lista vacia.\n");
         exit(-1);
     } else {
         return(c.fin->id);
