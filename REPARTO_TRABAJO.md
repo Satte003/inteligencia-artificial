@@ -60,8 +60,6 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Makefile
 
-En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal.
+En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal, bucarPorElemento, crearNulo, esIgualElemento.
 
 buscarPorIndice al meter un valor distinto saca el ultimo.
-
-buscarPorElemento al meter un valor que no existe saca el ultimo que se metio

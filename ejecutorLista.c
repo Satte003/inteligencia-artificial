@@ -51,14 +51,14 @@ int main(){
                 printf("Introduce un id: ");
                 scanf("%d", &id);
 				elem=buscarPorIndice(lista,id);
-				if(esIgualElemento(elem, nulo)){
+				if(!esIgualElemento(elem, nulo)){
 					imprimirElemento(elem);
 				}
 				break;
 			case 5:
                 elem=introducirElemento();
 				id=buscarPorElemento(lista,elem);
-				if(id!=0){
+				if(id!=-1){
 					printf("El id del elemento es: %d\n",id);
 				}
 				break;

@@ -148,7 +148,7 @@ int buscarPorElemento (listaCancion c, tipoelemento elem){
         exit(-1);
     } else {
         while(recorrido!=NULL && !encontrado){
-            if(esMismaCancion(recorrido->elem, elem)){
+            if(!esMismaCancion(recorrido->elem, elem)){
                recorrido=recorrido->sig; 
             } else {
                 encontrado = true;
@@ -164,7 +164,7 @@ int buscarPorElemento (listaCancion c, tipoelemento elem){
             }
         } else {
             printf("No se ha encontrado ningun id de dicho elemento\n");
-            return(0);
+            return(-1);
         }
     }
 }
@@ -224,7 +224,6 @@ int sacaIdFinal (listaCancion c){
 tipoelemento crearNulo (tipoelemento elem){
     elem.acusticness=-1;
     elem.artist_count=-1;
-    *elem.artist_name='N';
     elem.bpm=-1;
     elem.danceability=-1;
     elem.energy=-1;
@@ -234,7 +233,6 @@ tipoelemento crearNulo (tipoelemento elem){
     elem.spotify_charts=-1;
     elem.spotify_playlists=-1;
     elem.streams=-1;
-    *elem.track_name='N';
     elem.valence=-1;
 
     return(elem);
