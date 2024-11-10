@@ -4,19 +4,19 @@
 
 Cada vez que se hace una función en el .c hay que añadirla en su correspondiente .h (a excepción del Main)
 
-- Main **??**
+- [ ] Main **??**
 
-- Distancia (K-NN) **??**
+- [ ] Distancia (K-NN) **??**
 
-- Éxito **??**
+- [ ] Éxito **??**
 
-- Parámetros de entrada para éxito **??**
+- [ ] Parámetros de entrada para éxito **??**
 
-- Estructura de datos **P**
+- [x] Estructura de datos **P**
 
-- Makefile **P**
+- [x] Makefile **P**
 
-- Lectura de datos **P**
+- [ ] Lectura de datos **P**
 
 
 ## Presentación (provisional)
@@ -60,6 +60,4 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Makefile
 
-En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal, bucarPorElemento, crearNulo, esIgualElemento.
-
-buscarPorIndice al meter un valor distinto saca el ultimo.
+En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal, bucarPorElemento, crearNulo, esIgualElemento. buscarPorIndice funciona pero cuando metes algo que no existe te dice que no existe y luego saca la pila nula (formada por -1)
