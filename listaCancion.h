@@ -4,7 +4,7 @@
 
 typedef struct cancion tipoelemento;
 typedef struct Nodo{
-    int id;
+    bool exito;
     tipoelemento elem;
     struct Nodo * sig;
 }Nodo;
@@ -18,15 +18,9 @@ void nuevaLista (listaCancion *);
 
 bool esVaciaLista (listaCancion);
 
-void añadirInicio (listaCancion *, tipoelemento, int);
+void añadirInicio (listaCancion *, tipoelemento, bool);
 
-void añadirFinal (listaCancion *, tipoelemento, int);
-
-void eliminarPorIndice (listaCancion *, int);
-
-tipoelemento buscarPorIndice (listaCancion, int);
-
-int buscarPorElemento (listaCancion, tipoelemento);
+void añadirFinal (listaCancion *, tipoelemento, bool);
 
 void desenlistarInicio (listaCancion *);
 
@@ -34,10 +28,4 @@ tipoelemento primero (listaCancion);
 
 tipoelemento ultimo (listaCancion);
 
-int sacaIdPrimero (listaCancion);
-
-int sacaIdFinal (listaCancion);
-
-tipoelemento crearNulo (tipoelemento);
-
-bool esIgualElemento (tipoelemento, tipoelemento);
+tipoelemento introducirElemento ();

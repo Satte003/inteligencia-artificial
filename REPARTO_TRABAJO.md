@@ -6,11 +6,11 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - [ ] Main **??**
 
-- [ ] Distancia (K-NN) **??**
+- [ ] Distancia (K-NN) **V**
 
-- [ ] Éxito **??**
+- [ ] Éxito (triple booleano) **E**
 
-- [ ] Parámetros de entrada para éxito **??**
+- [ ] Puntuacion de acuerdo a la fecha. **A**
 
 - [x] Estructura de datos **P**
 
@@ -48,7 +48,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 ## VITOR
 
-- 
+- Distancia (K-NN)
 
 - 
 

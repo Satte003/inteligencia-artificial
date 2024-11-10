@@ -3,108 +3,45 @@
 
 #include "listaCancion.h"
 
-tipoelemento introducirElemento ();
-void imprimirElemento (tipoelemento);
-
 int main(){
 	tipoelemento elem, nulo;
 	listaCancion lista;
-	int opcion,id;
+	int opcion;
+	bool exito;
 
-	nulo=crearNulo(nulo);
+	exito=false;
 	nuevaLista(&lista);
 	do
     {
 		printf("--------MENU-------- \n");
 		printf("1 - Insertar un elemento en la primera posicion de la lista.\n");
 		printf("2 - Insertar un elemento en la ultima posicion de la lista.\n");
-		printf("3 - Eliminar por el indice.\n");
-		printf("4 - Buscar por un indice. \n");
-		printf("5 - Buscar por elemento.\n");
-		printf("6 - Desenlistar al inicio.\n");
-		printf("7 - Saca el primer elemento.\n");
-		printf("8 - Saca el ultimo elemento.\n");
-        printf("9 - Saca el id del primer elemento.\n");
-        printf("10 - Saca el id del ultimo elemento.\n");
-		printf("11 - Salir.\n");
+		printf("3 - Desenlistar al inicio.\n");
+		printf("4 - Saca el primer elemento.\n");
+		printf("5 - Saca el ultimo elemento.\n");
+		printf("6 - Salir.\n");
 		printf("Escoja una opcion: ");
 		scanf("%d",&opcion);
 		switch(opcion){           
 			case 1: 
 				elem=introducirElemento();
-                printf("Introduce un id: ");
-                scanf("%d", &id);
-				añadirInicio(&lista,elem,id);
+				añadirInicio(&lista,elem,exito);
 				break;
 			case 2: 
 				elem=introducirElemento();
-                printf("Introduce un id: ");
-                scanf("%d", &id);
-				añadirFinal(&lista,elem,id);
-				break;    
-			case 3: 
-				printf("Introduce un id: ");
-                scanf("%d", &id);
-				eliminarPorIndice(&lista, id);
+				añadirFinal(&lista,elem,exito);
 				break;
-			case 4: 
-                printf("Introduce un id: ");
-                scanf("%d", &id);
-				elem=buscarPorIndice(lista,id);
-				if(!esIgualElemento(elem, nulo)){
-					imprimirElemento(elem);
-				}
-				break;
-			case 5:
-                elem=introducirElemento();
-				id=buscarPorElemento(lista,elem);
-				if(id!=-1){
-					printf("El id del elemento es: %d\n",id);
-				}
-				break;
-			case 6:
+			case 3:
 				desenlistarInicio(&lista);
 				break;
-            case 7:
+            case 4:
 				elem=primero(lista);
                 imprimirElemento(elem);
 				break;
-            case 8:
+            case 5:
                 elem=ultimo(lista);
                 imprimirElemento(elem);
 				break;
-            case 9:
-                id=sacaIdPrimero(lista);
-                printf("El id del elemento es: %d\n",id);
-				break;
-            case 10:
-                id=sacaIdFinal(lista);
-                printf("El id del elemento es: %d\n",id);
-				break;
 		}
-	}while(opcion<11);
-}
-
-
-tipoelemento introducirElemento (){
-    tipoelemento cancion;
-	nuevaCancion(&cancion);
-
-	printf("Introduce el nombre del artista: ");
-    scanf("%99s", cancion.artist_name);
-    printf("Introduce el numero de artistas: ");
-    scanf("%d", &cancion.artist_count);
-    printf("Introduce el mes en el que se saco: ");
-    scanf("%d", &cancion.release_month);
-    printf("Introduce el dia en el que se saco: ");
-    scanf("%d", &cancion.released_day);
-
-    return(cancion);
-}
-
-void imprimirElemento (tipoelemento elem){
-    printf("Nombre del artista: %s\n", elem.artist_name);
-    printf("Numero de artistas: %d\n", elem.artist_count);
-    printf("Mes en el que salio: %d\n", elem.release_month);
-    printf("Dia en el que se saco: %d\n", elem.released_day);
+	}while(opcion<6);
 }

@@ -12,12 +12,12 @@ bool esVaciaLista (listaCancion c){
     return(c.ini==NULL);
 }
 
-void añadirInicio (listaCancion *c, tipoelemento elem, int id){
+void añadirInicio (listaCancion *c, tipoelemento elem, bool exito){
     Nodo *aux;
     aux = (Nodo *)malloc(sizeof(Nodo));
 
     aux->elem=elem;
-    aux->id=id;
+    aux->exito=exito;
 
     if(esVaciaLista(*c)){
         aux->sig=NULL;
@@ -29,12 +29,12 @@ void añadirInicio (listaCancion *c, tipoelemento elem, int id){
     }
 }
 
-void añadirFinal (listaCancion *c, tipoelemento elem, int id){
+void añadirFinal (listaCancion *c, tipoelemento elem, bool exito){
     Nodo *aux;
     aux = (Nodo *)malloc(sizeof(Nodo));
 
     aux->elem=elem;
-    aux->id=id;
+    aux->exito=exito;
     aux->sig=NULL; 
 
     if(esVaciaLista(*c)){
@@ -43,129 +43,6 @@ void añadirFinal (listaCancion *c, tipoelemento elem, int id){
     } else {
         c->fin->sig=aux;
         c->fin=aux;
-    }
-}
-
-void eliminarPorIndice (listaCancion * c, int id){
-    listaCancion recorrido;
-    Nodo *ant, *aux;
-    bool encontrado;
-
-    encontrado=false;
-    ant = (Nodo *)malloc(sizeof(Nodo));
-    aux = (Nodo *)malloc(sizeof(Nodo));
-    nuevaLista(&recorrido);
-    recorrido=*c;
-    
-    if(esVaciaLista(*c)){
-        printf("ERROR: Intentando eliminar un elemento de una lista vacia, dado el indice.\n");
-        exit(-1);
-    } else {
-        while(!esVaciaLista(recorrido) && !encontrado){
-            if(recorrido.ini->id!=id){
-              ant=recorrido.ini;
-             recorrido.ini=recorrido.ini->sig;  
-            } else {
-                encontrado=true;
-            }
-        }
-
-        if(!esVaciaLista(recorrido)){
-            if(encontrado){
-                aux=recorrido.ini;
-                if (recorrido.ini==c->ini && recorrido.ini==c->fin){
-                    c->ini=NULL;
-                    c->fin=NULL;
-                    free(aux);
-                } else if(recorrido.ini->sig==NULL){
-                    ant->sig=NULL;
-                    c->fin=ant;
-                    free(aux);
-                } else {
-                    ant->sig=recorrido.ini->sig;
-                    free(aux);
-                }              
-            } else {
-                printf("ERROR: eliminarPorIndice no ha obtenido un id igual y no se ha acabado la lista\n");
-                exit(-1);
-            }
-        } else {
-            printf("No se ha encontrado ningun elemento con ese id.\n");
-        }
-    }
-
-    if(esVaciaLista(*c)){
-            c->fin=NULL;
-    }
-}
-
-tipoelemento buscarPorIndice (listaCancion c, int id){
-    Nodo *recorrido;
-    tipoelemento nulo;
-    bool encontrado;
-
-    nulo=crearNulo(nulo);
-    encontrado=false;
-    recorrido = (Nodo *)malloc(sizeof(Nodo));
-    recorrido=c.ini;
-
-    if(esVaciaLista(c)){
-        printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el indice.\n");
-        exit(-1);
-    } else {
-        while(recorrido!=NULL && !encontrado){
-            if(recorrido->id!=id){
-                recorrido=recorrido->sig;
-            } else {
-                encontrado=true;
-            }
-        }
-
-        if(recorrido!=NULL){
-            if(encontrado){
-                return(recorrido->elem);
-            } else {
-                printf("ERROR: buscarPorIndice no ha obtenido un id igual y no se ha acabado la lista\n");
-                exit(-1);
-            }
-        } else {
-            printf("No existe ningun elemento con ese id.\n");
-            return(nulo);
-        }
-    }
-}
-
-int buscarPorElemento (listaCancion c, tipoelemento elem){
-    Nodo *recorrido;
-    bool encontrado;
-
-    encontrado=false;
-    recorrido = (Nodo *)malloc(sizeof(Nodo));
-    recorrido=c.ini;
-    
-    if(esVaciaLista(c)){
-        printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
-        exit(-1);
-    } else {
-        while(recorrido!=NULL && !encontrado){
-            if(!esMismaCancion(recorrido->elem, elem)){
-               recorrido=recorrido->sig; 
-            } else {
-                encontrado = true;
-            }
-        }
-
-        if(recorrido!=NULL){
-            if(encontrado){
-                return(recorrido->id);
-            } else {
-                printf("ERROR: buscarPorElemento no ha obtenido un id igual y no se ha acabado la lista\n");
-                exit(-1);
-            }
-        } else {
-            printf("No se ha encontrado ningun id de dicho elemento\n");
-            return(-1);
-        }
     }
 }
 
@@ -203,41 +80,59 @@ tipoelemento ultimo (listaCancion c){
     }
 }
 
-int sacaIdPrimero (listaCancion c){
-    if(esVaciaLista(c)){
-        printf("ERROR: Intentando sacar el primer id de una lista vacia.\n");
-        exit(-1);
-    } else {
-        return(c.ini->id);
-    }
-}
+tipoelemento introducirElemento (){
+    tipoelemento cancion;
+	nuevaCancion(&cancion);
+    bool existe;
+    existe=false;
 
-int sacaIdFinal (listaCancion c){
-    if(esVaciaLista(c)){
-        printf("ERROR: Intentando sacar el ultimo id de una lista vacia.\n");
-        exit(-1);
-    } else {
-        return(c.fin->id);
-    }
-}
+    do{
+        do {
+            printf("Introduce el mes en el que se saco: ");
+            scanf("%d", &cancion.release_month);
+        } while (cancion.release_month<=0 && cancion.release_month>12);
+        
+        do{
+            printf("Introduce el dia en el que se saco: ");
+            scanf("%d", &cancion.release_day);
 
-tipoelemento crearNulo (tipoelemento elem){
-    elem.acusticness=-1;
-    elem.artist_count=-1;
-    elem.bpm=-1;
-    elem.danceability=-1;
-    elem.energy=-1;
-    elem.liveness=-1;
-    elem.release_month=-1;
-    elem.released_day=-1;
-    elem.spotify_charts=-1;
-    elem.spotify_playlists=-1;
-    elem.streams=-1;
-    elem.valence=-1;
 
-    return(elem);
-}
+        } while (cancion.release_day <=0 && cancion.release_month>31);
 
-bool esIgualElemento (tipoelemento elem1, tipoelemento elem2){
-    return(elem1.acusticness==elem2.acusticness && elem1.artist_count==elem2.artist_count && elem1.artist_name==elem2.artist_name && elem1.bpm==elem2.bpm && elem1.danceability==elem2.danceability && elem1.energy==elem2.energy && elem1.liveness==elem2.liveness && elem1.release_month==elem2.release_month && elem1.released_day==elem2.released_day && elem1.spotify_charts==elem2.spotify_charts && elem1.spotify_playlists==elem2.spotify_playlists && elem1.streams==elem2.streams && elem1.valence==elem2.valence);
+        if((cancion.release_month==2 && cancion.release_day<=29)||(cancion.release_month%2==0 && cancion.release_month<=6 && cancion.release_month!=2 && cancion.release_day<=30)||(cancion.release_month%2==1 && cancion.release_month>=9 && cancion.release_day<=30)||(cancion.release_month%2==1 && cancion.release_month<=7 && cancion.release_day<=31)||(cancion.release_month%2==0 && cancion.release_month>=8 && cancion.release_day<=31)){
+            existe=true;
+        }
+    } while(existe==false);
+    
+    do{
+        printf("Introduce los beats por minuto de la cancion (bpm): ");
+        scanf("%d", &cancion.bpm);
+    } while (cancion.bpm>0);
+
+    do{
+        printf("Introduce el porcentaje de bailabilidad de la cancion (danceability) ");
+        scanf("%d", &cancion.danceability);
+    } while (cancion.danceability>=0 && cancion.danceability<=100);
+
+    do{
+        printf("Introduce el porcentaje de positividad de la cancion (valence): ");
+        scanf("%d", &cancion.valence);
+    } while (cancion.valence>=0 && cancion.valence<=100);
+    
+    do{
+        printf("Introduce el porcentaje de nivel de energia de la cancion (energy): ");
+        scanf("%d", &cancion.energy);
+    } while (cancion.energy>=0 && cancion.energy<=100);
+
+    do{
+        printf("Introduce el porcentaje de presencia acustica de la cancion (acusticness): ");
+        scanf("%d", &cancion.acusticness);
+    } while (cancion.acusticness>=0 && cancion.acusticness<=100);
+    
+    do{
+        printf("Introduce el porcentaje de elementos en directo de la cancion (liveness): ");
+        scanf("%d", &cancion.liveness);
+    } while (cancion.liveness>=0 && cancion.liveness<=100);
+
+    return(cancion);
 }
