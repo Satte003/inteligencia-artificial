@@ -34,13 +34,13 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Diapositivas: crear, organizar
 
-- 
+- Éxito (triple booleano)
 
 - 
 
 ## AITOR
 
-- 
+- Puntuacion de acuerdo a la fecha.
 
 - 
 
