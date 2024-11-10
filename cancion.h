@@ -3,7 +3,6 @@
 typedef struct cancion {
     /*Estos son datos mas generales, en los que daremos importancia en algunos.*/
     
-    char track_name [100]; //Puede que no haga falta
     char artist_name [100]; 
     int artist_count;
     int release_month;

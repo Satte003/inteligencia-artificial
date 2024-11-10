@@ -90,8 +90,6 @@ tipoelemento introducirElemento (){
     tipoelemento cancion;
 	nuevaCancion(&cancion);
 
-	printf("Introduce el nombre de la cancion: ");
-    scanf("%99s", cancion.track_name);
 	printf("Introduce el nombre del artista: ");
     scanf("%99s", cancion.artist_name);
     printf("Introduce el numero de artistas: ");
@@ -105,7 +103,6 @@ tipoelemento introducirElemento (){
 }
 
 void imprimirElemento (tipoelemento elem){
-    printf("Nombre de la cancion: %s\n", elem.track_name);
     printf("Nombre del artista: %s\n", elem.artist_name);
     printf("Numero de artistas: %d\n", elem.artist_count);
     printf("Mes en el que salio: %d\n", elem.release_month);
