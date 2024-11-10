@@ -25,7 +25,7 @@ bool esMismaCancion(cancion c1, cancion c2){
 
     esIgual=true;
 
-    if(c1.track_name!=c2.track_name || c1.artist_name!=c2.artist_name || c1.artist_count!=c2.artist_count || c1.release_month!=c2.release_month || c1.released_day!=c2.released_day){
+    if(c1.artist_name!=c2.artist_name || c1.artist_count!=c2.artist_count || c1.release_month!=c2.release_month || c1.released_day!=c2.released_day){
         esIgual=false;
     }
 

@@ -239,5 +239,5 @@ tipoelemento crearNulo (tipoelemento elem){
 }
 
 bool esIgualElemento (tipoelemento elem1, tipoelemento elem2){
-    return(elem1.acusticness==elem2.acusticness && elem1.artist_count==elem2.artist_count && elem1.artist_name==elem2.artist_name && elem1.bpm==elem2.bpm && elem1.danceability==elem2.danceability && elem1.energy==elem2.energy && elem1.liveness==elem2.liveness && elem1.release_month==elem2.release_month && elem1.released_day==elem2.released_day && elem1.spotify_charts==elem2.spotify_charts && elem1.spotify_playlists==elem2.spotify_playlists && elem1.streams==elem2.streams && elem1.track_name==elem2.track_name && elem1.valence==elem2.valence);
+    return(elem1.acusticness==elem2.acusticness && elem1.artist_count==elem2.artist_count && elem1.artist_name==elem2.artist_name && elem1.bpm==elem2.bpm && elem1.danceability==elem2.danceability && elem1.energy==elem2.energy && elem1.liveness==elem2.liveness && elem1.release_month==elem2.release_month && elem1.released_day==elem2.released_day && elem1.spotify_charts==elem2.spotify_charts && elem1.spotify_playlists==elem2.spotify_playlists && elem1.streams==elem2.streams && elem1.valence==elem2.valence);
 }
