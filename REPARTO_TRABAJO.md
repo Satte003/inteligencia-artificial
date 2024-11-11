@@ -10,7 +10,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - [ ] Éxito (triple booleano) **E**
 
-- [ ] Puntuacion de acuerdo a la fecha. **A**
+- [ ] Normalizar **A**
 
 - [x] Estructura de datos **P**
 
@@ -40,7 +40,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 ## AITOR
 
-- Puntuacion de acuerdo a la fecha.
+- Normalizar
 
 - 
 
