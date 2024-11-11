@@ -1,8 +1,12 @@
-typedef struct {
-    int mes_lanzamiento; 
-    float mes_radianes;  
-} Cancion;
+#include <stdio.h>
+#include <stdlib.h>
+#include "cancion.h"
 
-void normalizarFecha(Cancion tabla_datos[], int);
+#define MaxBMP 206
+#define PI 3.14159265358979323846
+
+/*int normalizarFecha(int);
+
 float compararMeses(Cancion, Cancion);
-void normalizarBPM(int bpm[], int bpmNormalizado[], int);
+*/
+int normalizarBPM(int);
