@@ -16,7 +16,7 @@ float compararMeses(Cancion cancion1, Cancion cancion2) {
         diferencia_angular = 2 * PI - diferencia_angular;
     }
 
-    return (diferencia_angular / PI);
+    return (diferencia_angular / PI) * 100;
 }
 
 void normalizarBPM(int bpm[], int bpmNormalizado[], int numCanciones) {
