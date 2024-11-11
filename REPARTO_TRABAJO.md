@@ -36,23 +36,13 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Éxito (triple booleano)
 
-- 
-
 ## AITOR
 
 - Normalizar
 
-- 
-
-- 
-
 ## VITOR
 
 - Distancia (K-NN)
-
-- 
-
-- 
 
 ## PABLO
 
