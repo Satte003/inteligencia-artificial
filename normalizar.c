@@ -17,5 +17,5 @@ float compararMeses(cancion cancion1, cancion cancion2) {
 }*/
 
 int normalizarBPM(int bpm) {
-    return(bpm*100/MaxBMP);
+    return((int)bpm*100/MaxBMP);
 }
