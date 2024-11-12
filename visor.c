@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#include "listaCancion.h"
 #include "cargarDatos.h"
+
+void imprimirElemento(tipoelemento);
 
 int main(){
 	listaCancion datos;
@@ -32,6 +33,7 @@ int main(){
 				break;
             case 3:
                 elem=introducirElemento();
+                elem.bpm=normalizarBPM(elem.bpm);
                 exito=buscarPorElemento(datos, elem);
                 if(exito){
                     printf("La cancion introducida seria un exito.\n");
@@ -39,5 +41,15 @@ int main(){
                     printf("La cancion introducida NO seria un exito.\n");
                 }
 		}
-	}while(opcion<6);
+	}while(opcion<4);
+}
+
+void imprimirElemento(tipoelemento elem){
+    printf("BPM: %d\n", elem.bpm);
+    printf("Danceability: %d\n", elem.danceability);
+    printf("Valence: %d\n", elem.valence);
+    printf("Energy: %d\n", elem.energy);
+    printf("Acousticness: %d\n", elem.acousticness);
+    printf("Liveness: %d\n", elem.liveness);
+
 }

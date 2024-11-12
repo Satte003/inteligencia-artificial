@@ -107,32 +107,32 @@ tipoelemento introducirElemento (){
     do{
         printf("Introduce los beats por minuto de la cancion (bpm): ");
         scanf("%d", &cancion.bpm);
-    } while (cancion.bpm>0);
+    } while (cancion.bpm<=0);
 
     do{
         printf("Introduce el porcentaje de bailabilidad de la cancion (danceability) ");
         scanf("%d", &cancion.danceability);
-    } while (cancion.danceability>=0 && cancion.danceability<=100);
+    } while (cancion.danceability<0 && cancion.danceability>100);
 
     do{
         printf("Introduce el porcentaje de positividad de la cancion (valence): ");
         scanf("%d", &cancion.valence);
-    } while (cancion.valence>=0 && cancion.valence<=100);
+    } while (cancion.valence<0 && cancion.valence>100);
     
     do{
         printf("Introduce el porcentaje de nivel de energia de la cancion (energy): ");
         scanf("%d", &cancion.energy);
-    } while (cancion.energy>=0 && cancion.energy<=100);
+    } while (cancion.energy<0 && cancion.energy>100);
 
     do{
-        printf("Introduce el porcentaje de presencia acustica de la cancion (acusticness): ");
+        printf("Introduce el porcentaje de presencia acustica de la cancion (acousticness): ");
         scanf("%d", &cancion.acousticness);
-    } while (cancion.acousticness>=0 && cancion.acousticness<=100);
+    } while (cancion.acousticness<0 && cancion.acousticness>100);
     
     do{
         printf("Introduce el porcentaje de elementos en directo de la cancion (liveness): ");
         scanf("%d", &cancion.liveness);
-    } while (cancion.liveness>=0 && cancion.liveness<=100);
+    } while (cancion.liveness<0 && cancion.liveness>100);
 
     return(cancion);
 }
@@ -150,7 +150,7 @@ bool buscarPorElemento (listaCancion c, tipoelemento elem){
         exit(-1);
     } else {
         while(recorrido!=NULL && !encontrado){
-            if(!esMismaCancion(recorrido->elem, elem)){
+            if(recorrido->elem.bpm!=elem.bpm || recorrido->elem.acousticness!=elem.acousticness || recorrido->elem.danceability!=elem.danceability || recorrido->elem.energy!=elem.energy || recorrido->elem.liveness!=elem.liveness || recorrido->elem.valence!=elem.valence){
                recorrido=recorrido->sig; 
             } else {
                 encontrado = true;

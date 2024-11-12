@@ -1,4 +1,4 @@
-all: cancion esExito normalizar cargarDatos ejecutorLista ejecutorCargarDatos
+all: cancion esExito normalizar cargarDatos ejecutorLista ejecutorCargarDatos visor
 
 cancion: cancion.c cancion.h
 	gcc -g cancion.c -c
@@ -20,3 +20,6 @@ ejecutorLista: cancion.o listaCancion.o
 
 ejecutorCargarDatos: cancion.o listaCancion.o esExito.o normalizar.o cargarDatos.o
 	gcc -g ejecutorCargarDatos.c cancion.o listaCancion.o esExito.o normalizar.o cargarDatos.o -o ejecutorCargarDatos
+
+visor: cancion.o listaCancion.o esExito.o normalizar.o cargarDatos.o
+	gcc -g visor.c cancion.o listaCancion.o esExito.o normalizar.o cargarDatos.o -o visor
