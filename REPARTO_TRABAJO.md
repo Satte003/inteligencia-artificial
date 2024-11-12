@@ -4,15 +4,15 @@
 
 Cada vez que se hace una función en el .c hay que añadirla en su correspondiente .h (a excepción del Main)
 
-- [ ] Main **??**
+- [ ] Main **A, E**
 
 - [ ] Distancia (K-NN) **V**
 
-- [ ] Éxito (triple booleano) **E**
+- [X] Éxito (triple booleano) **E**
 
 - [ ] Normalizar **A**
 
-- [x] Estructura de datos **P**
+- [X] Estructura de datos **P**
 
 - [x] Makefile **P**
 
@@ -25,7 +25,7 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Diapositivas: capturas del código, resultado del progama **??**
 
-- Guión (explicación del código) **??**
+- Guión (explicación del código) **CADA UNO SU PARTE**
 
 
 # REPARTO
