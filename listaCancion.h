@@ -29,3 +29,5 @@ tipoelemento primero (listaCancion);
 tipoelemento ultimo (listaCancion);
 
 tipoelemento introducirElemento ();
+
+bool buscarPorElemento (listaCancion, tipoelemento);

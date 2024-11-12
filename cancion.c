@@ -4,8 +4,8 @@
 #include "cancion.h"
 
 void nuevaCancion (cancion *c){
-    c->release_month=0;
-    c->release_day=0;
+    /*c->release_month=0;
+    c->release_day=0;*/
 
     c->bpm=-1;
     c->danceability=-1;

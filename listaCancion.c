@@ -86,7 +86,7 @@ tipoelemento introducirElemento (){
     bool existe;
     existe=false;
 
-    do{
+    /*do{
         do {
             printf("Introduce el mes en el que se saco: ");
             scanf("%d", &cancion.release_month);
@@ -102,7 +102,7 @@ tipoelemento introducirElemento (){
         if((cancion.release_month==2 && cancion.release_day<=29)||(cancion.release_month%2==0 && cancion.release_month<=6 && cancion.release_month!=2 && cancion.release_day<=30)||(cancion.release_month%2==1 && cancion.release_month>=9 && cancion.release_day<=30)||(cancion.release_month%2==1 && cancion.release_month<=7 && cancion.release_day<=31)||(cancion.release_month%2==0 && cancion.release_month>=8 && cancion.release_day<=31)){
             existe=true;
         }
-    } while(existe==false);
+    } while(existe==false);*/
     
     do{
         printf("Introduce los beats por minuto de la cancion (bpm): ");
@@ -135,4 +135,38 @@ tipoelemento introducirElemento (){
     } while (cancion.liveness>=0 && cancion.liveness<=100);
 
     return(cancion);
+}
+
+bool buscarPorElemento (listaCancion c, tipoelemento elem){
+    Nodo *recorrido;
+    bool exito, encontrado;
+
+    recorrido = (Nodo *)malloc(sizeof(Nodo));
+    recorrido=c.ini;
+    encontrado=false;
+
+    if(esVaciaLista(c)){
+        printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
+        exit(-1);
+    } else {
+        while(recorrido!=NULL && !encontrado){
+            if(!esMismaCancion(recorrido->elem, elem)){
+               recorrido=recorrido->sig; 
+            } else {
+                encontrado = true;
+            }
+        }
+
+        if(recorrido!=NULL){
+            if(encontrado){
+                return(recorrido->exito);
+            } else {
+                printf("ERROR: buscarPorElemento no ha obtenido un elemento igual y no se ha acabado la lista\n");
+                exit(-1);
+            }
+        } else {
+            printf("No se ha encontrado ningun elemento como ese.\n");
+            return(-1);
+        }
+    }
 }
