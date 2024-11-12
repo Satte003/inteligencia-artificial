@@ -1,19 +1,11 @@
 #include "esExito.h"
 
 bool esExito (int playlists, int charts, int streams){
-    bool esStreams = false, esCharts = false, esPlaylists = false;
+    bool esStreams, esCharts, esPlaylists;
 
-    if(streams >= Min_streams){
-        esStreams = true;
-    }
-
-    if(charts >= Min_charts){
-        esCharts = true;
-    }
-
-    if(playlists >= Min_playlists){
-        esPlaylists = true;
-    }
+    esStreams = streams >= Min_streams;
+    esCharts = charts >= Min_charts;
+    esPlaylists = playlists >= Min_playlists;
 
     return ((esPlaylists && esCharts) || (esPlaylists && esStreams) || (esStreams && esCharts) || (esPlaylists && esCharts && esStreams));
 }
