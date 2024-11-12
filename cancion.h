@@ -6,15 +6,11 @@ typedef struct cancion {
     int release_month;
     int release_day;
 
-    int spotify_playlists;
-    int spotify_charts;
-    int streams;
-
     int bpm;
     int danceability;
     int valence;
     int energy;
-    int acusticness;
+    int acousticness;
     int liveness;
 }cancion;
 

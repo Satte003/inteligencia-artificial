@@ -126,8 +126,8 @@ tipoelemento introducirElemento (){
 
     do{
         printf("Introduce el porcentaje de presencia acustica de la cancion (acusticness): ");
-        scanf("%d", &cancion.acusticness);
-    } while (cancion.acusticness>=0 && cancion.acusticness<=100);
+        scanf("%d", &cancion.acousticness);
+    } while (cancion.acousticness>=0 && cancion.acousticness<=100);
     
     do{
         printf("Introduce el porcentaje de elementos en directo de la cancion (liveness): ");

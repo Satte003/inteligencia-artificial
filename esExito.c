@@ -1,6 +1,6 @@
 #include "esExito.h"
 
-bool esExito (int streams, int charts, int playlists){
+bool esExito (int playlists, int charts, int streams){
     bool esStreams = false, esCharts = false, esPlaylists = false;
 
     if(streams >= Min_streams){
