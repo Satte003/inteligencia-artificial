@@ -19,3 +19,9 @@ float compararMeses(cancion cancion1, cancion cancion2) {
 int normalizarBPM(int bpm) {
     return((int)bpm*100/MaxBMP);
 }
+
+normalizarArtistCount
+
+normalizarKey
+
+normalizarMode

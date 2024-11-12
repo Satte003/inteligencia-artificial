@@ -110,3 +110,7 @@ void saltarLinea(FILE *f){
         c=fgetc(f);
     }
 }
+
+artist count
+
+key y Mode
