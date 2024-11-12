@@ -31,3 +31,5 @@ tipoelemento ultimo (listaCancion);
 tipoelemento introducirElemento ();
 
 bool buscarPorElemento (listaCancion, tipoelemento);
+
+tipoelemento buscarPorPosicion (listaCancion, int);

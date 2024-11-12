@@ -170,3 +170,16 @@ bool buscarPorElemento (listaCancion c, tipoelemento elem){
         }
     }
 }
+
+tipoelemento buscarPorPosicion (listaCancion c, int posicion){
+    Nodo *recorrido;
+    int i;
+
+    recorrido = (Nodo *)malloc(sizeof(Nodo));
+    recorrido=c.ini;
+
+    for(i=0; i<posicion-2; i++){
+        recorrido=recorrido->sig;
+    }
+    return(recorrido->elem);
+}

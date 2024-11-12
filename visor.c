@@ -8,7 +8,7 @@ void imprimirElemento(tipoelemento);
 int main(){
 	listaCancion datos;
     tipoelemento elem;
-    int opcion;
+    int opcion,posicion;
     bool exito;
 
 	nuevaLista(&datos);
@@ -19,7 +19,8 @@ int main(){
 		printf("1 - Saca el primer elemento.\n");
 		printf("2 - Saca el ultimo elemento.\n");
         printf("3 - Sacar exito de elem.\n");
-		printf("4 - Salir.\n");
+        printf("4 - Sacar elemento de acuerdo a la posicion.\n");
+		printf("5 - Salir.\n");
 		printf("Escoja una opcion: ");
 		scanf("%d",&opcion);
 		switch(opcion){           
@@ -40,8 +41,14 @@ int main(){
                 } else {
                     printf("La cancion introducida NO seria un exito.\n");
                 }
+            case 4:
+                printf("Introduce la posicion en el dataset del elemento: ");
+                scanf("%d", &posicion);
+                elem=buscarPorPosicion(datos,posicion);
+                imprimirElemento(elem);
+                
 		}
-	}while(opcion<4);
+	}while(opcion<5);
 }
 
 void imprimirElemento(tipoelemento elem){
