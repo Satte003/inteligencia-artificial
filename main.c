@@ -1,1 +1,1 @@
-knn(datos, elem, k);
+knn(datos, elem);
