@@ -1,17 +1,15 @@
 #include <stdbool.h>
 
-typedef struct cancion {
-    /*Estos son datos mas generales, en los que daremos importancia en algunos.*/
-    
-    /*int release_month;
-    int release_day;*/
-
+typedef struct cancion{
     int bpm;
     int danceability;
     int valence;
     int energy;
     int acousticness;
     int liveness;
+    char *key;
+    char *mode;
+    int release_month;
 }cancion;
 
 void nuevaCancion (cancion *);
