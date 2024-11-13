@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define MaxBMP 206
 #define PI 3.14159265358979323846
 
-/*int normalizarFecha(int);
+int compararB1(char*, char*);
 
-float compararMeses(Cancion, Cancion);
-*/
-int normalizarBPM(int);
+void normalizarA1(int[], int);
+
+int compararMeses1(int, int);

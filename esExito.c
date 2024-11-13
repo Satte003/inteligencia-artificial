@@ -7,5 +7,5 @@ bool esExito (int playlists, int charts, int streams){
     esCharts = charts >= Min_charts;
     esPlaylists = playlists >= Min_playlists;
 
-    return ((esPlaylists && esCharts) || (esPlaylists && esStreams) || (esStreams && esCharts) || (esPlaylists && esCharts && esStreams));
+    return ((esPlaylists && esCharts) || (esPlaylists && esStreams) || (esStreams && esCharts));
 }
