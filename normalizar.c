@@ -1,5 +1,8 @@
 #include "normalizar.h"
 
+int normalizarBPM(int bpm) {
+    return((int)bpm*100/MaxBMP);
+}
 
 /*int normalizarFecha(int mes) {
     return((mes - 1) * (PI / 6));
@@ -16,9 +19,7 @@ float compararMeses(cancion cancion1, cancion cancion2) {
     return ((diferencia_angular / PI)*100);
 }*/
 
-int normalizarBPM(int bpm) {
-    return((int)bpm*100/MaxBMP);
-}
+
 
 normalizarArtistCount
 

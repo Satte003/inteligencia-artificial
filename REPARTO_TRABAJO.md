@@ -50,4 +50,6 @@ Cada vez que se hace una función en el .c hay que añadirla en su correspondien
 
 - Makefile
 
+- Borrar cosas como le sale de la polla
+
 En listaCancion funciona el crear nuevaLista, esVaciaLista, añadirInicio, añadirFinal, eliminarPorIndice, desenlistarInicio, primero, ultimo, sacaIdPrimero y sacaIdFinal, bucarPorElemento, crearNulo, esIgualElemento. buscarPorIndice funciona pero cuando metes algo que no existe te dice que no existe y luego saca la pila nula (formada por -1)
