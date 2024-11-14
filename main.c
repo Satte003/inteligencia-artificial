@@ -8,17 +8,46 @@
 #include "normalizar.h"
 
 //función para usar el knn
-knn(datos, elem);
+// knn(datos, elem);
 
 int main(){
     char respuesta;
+    cancion cancion_prueba;
+    bool exito;
 
     do{
-        //programa
+        
+        printf("BPM: ");
+        scanf("%d",&cancion_prueba.bpm);
+        printf("Danzabilidad: ");
+        scanf("%d",&cancion_prueba.danceability);
+        printf("Valencia: ");
+        scanf("%d",&cancion_prueba.valence);
+        printf("Energia: ");
+        scanf("%d",&cancion_prueba.energy);
+        printf("Acusticidad: ");
+        scanf("%d",&cancion_prueba.acousticness);
+        printf("Vividez: ");
+        scanf("%d",&cancion_prueba.liveness);
+        printf("Mes de lanzamiento: ");
+        scanf("%d",&cancion_prueba.release_month);
+        printf("Clave: ");
+        scanf("%s",cancion_prueba.key);
+        printf("Modo: ");
+        scanf("%s",cancion_prueba.mode);
+
+        //exito = knn();
+        exito = true; // para probar
+
+        if (exito){
+            printf("La canción será exitosa.");
+        } else {
+            printf("La canción no será exitosa");
+        }
 
         printf("¿Quieres repetir la ejecución? (s/n)\n");
         scanf(" %c", &respuesta);
-    } while(respuesta = "s");
+    } while(respuesta == 's');
 
     return 0;
 }
