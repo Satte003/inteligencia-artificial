@@ -18,7 +18,7 @@ void cargarDatos (listaCancion *lista){
     }
 
     while(!feof(f)){
-        leerLinea(f,cancion);
+        leerLinea(f, cancion);
         añadirFinal(lista, cancion->elem, cancion->exito);
     }
 
@@ -42,9 +42,9 @@ void leerLinea(FILE *f, Nodo *cancion){
     if(!feof(f)){
         leerHastaComa(f, &stream);
     }
-    if(playlist!=-1 && chart!=-1 && stream!=-1){
-        exito=esExito(playlist,chart,stream);
-        cancion->exito=exito;
+    if(playlist != -1 && chart != -1 && stream != -1){
+        exito=esExito(playlist, chart, stream);
+        cancion->exito = exito;
     } else {
         printf("ERROR: No se ha leido ningun valor del fichero o el fichero esta vacio.\n");
         fclose(f);
@@ -70,22 +70,22 @@ void leerHastaSalto (FILE *f, Nodo *cancion){
             c = fgetc(f);
         }
         if(c!='\n'){
-            c=fgetc(f);
+            c = fgetc(f);
         }
 
         if(i == 0){
-            lectura=normalizarBPM(lectura);
-            cancion->elem.bpm=lectura;
+            lectura = normalizarBPM(lectura);
+            cancion->elem.bpm = lectura;
         } else if (i==1) {
-            cancion->elem.danceability=lectura;
+            cancion->elem.danceability = lectura;
         } else if (i==2) {
-            cancion->elem.valence=lectura;
+            cancion->elem.valence = lectura;
         } else if (i==3){
-            cancion->elem.energy=lectura;
+            cancion->elem.energy = lectura;
         } else if (i==4) {
-            cancion->elem.acousticness=lectura;
+            cancion->elem.acousticness = lectura;
         } else if (i==5) {
-            cancion->elem.liveness=lectura;
+            cancion->elem.liveness = lectura;
         }
 
         i++;
@@ -96,7 +96,7 @@ void leerHastaComa (FILE *f, int *lectura){
     char c;
     (*lectura) = 0;
 
-    c=fgetc(f);
+    c = fgetc(f);
     while(!feof(f) && c!=','){
         (*lectura) = (*lectura)*10 + (c-'0');
         c = fgetc(f);

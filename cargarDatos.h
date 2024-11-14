@@ -5,11 +5,11 @@
 #include "listaCancion.h"
 #include "normalizar.h"
 
-void cargarDatos (listaCancion *);
+void cargarDatos(listaCancion *);
 
-void leerLinea (FILE *, Nodo *);
+void leerLinea(FILE *, Nodo *);
 
-void leerHastaComa (FILE *, int*);
+void leerHastaComa(FILE *, int*);
 
 void saltarLinea(FILE *);
 

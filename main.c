@@ -36,16 +36,16 @@ int main(){
         printf("Modo (Major o Minor): ");
         scanf("%s",cancion_prueba.mode);
 
-        //exito = knn();
-        exito = true; // para probar
+        exito = knn();
+        //exito = true; // para probar
 
         if (exito){
-            printf("La canción será exitosa.");
+            printf("La canción sera exitosa.");
         } else {
-            printf("La canción no será exitosa");
+            printf("La canción no sera exitosa");
         }
 
-        printf("¿Quieres repetir la ejecución? (s/n)\n");
+        printf("¿Quieres repetir la ejecucion? (s/n)\n");
         scanf(" %c", &respuesta);
     } while(respuesta == 's');
 
