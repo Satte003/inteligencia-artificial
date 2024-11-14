@@ -1,4 +1,5 @@
 #include "cargarDatos.h"
+//añadir artist count, key y Mode
 
 void cargarDatos (listaCancion *lista){
     FILE *f;
@@ -59,20 +60,20 @@ void leerHastaSalto (FILE *f, Nodo *cancion){
     char c;
     int i, lectura;
 
-    i=0;
-    c=fgetc(f);
+    i = 0;
+    c = fgetc(f);
 
-    while(!feof(f)&&c!='\n'){
-        lectura=0;
+    while(!feof(f) && c!='\n'){
+        lectura = 0;
         while(!feof(f) && c!=',' && c!='\n'){
-            lectura=lectura*10 + (c-'0');
-            c=fgetc(f);
+            lectura = lectura*10 + (c-'0');
+            c = fgetc(f);
         }
         if(c!='\n'){
             c=fgetc(f);
         }
 
-        if(i==0){
+        if(i == 0){
             lectura=normalizarBPM(lectura);
             cancion->elem.bpm=lectura;
         } else if (i==1) {
@@ -93,24 +94,20 @@ void leerHastaSalto (FILE *f, Nodo *cancion){
 
 void leerHastaComa (FILE *f, int *lectura){
     char c;
-    (*lectura)=0;
+    (*lectura) = 0;
 
     c=fgetc(f);
     while(!feof(f) && c!=','){
-        (*lectura)=(*lectura)*10 + (c-'0');
-        c=fgetc(f);
+        (*lectura) = (*lectura)*10 + (c-'0');
+        c = fgetc(f);
     }
 }
 
 void saltarLinea(FILE *f){
     char c;
 
-    c=fgetc(f);
+    c = fgetc(f);
     while(!feof(f) && c!='\n'){
-        c=fgetc(f);
+        c = fgetc(f);
     }
 }
-
-artist count
-
-key y Mode

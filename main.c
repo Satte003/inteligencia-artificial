@@ -19,21 +19,21 @@ int main(){
         
         printf("BPM: ");
         scanf("%d",&cancion_prueba.bpm);
-        printf("Danzabilidad: ");
+        printf("Danzabilidad (0-100): ");
         scanf("%d",&cancion_prueba.danceability);
-        printf("Valencia: ");
+        printf("Valencia (0-100): ");
         scanf("%d",&cancion_prueba.valence);
-        printf("Energia: ");
+        printf("Energia (0-100): ");
         scanf("%d",&cancion_prueba.energy);
-        printf("Acusticidad: ");
+        printf("Acusticidad (0-100): ");
         scanf("%d",&cancion_prueba.acousticness);
-        printf("Vividez: ");
+        printf("Vividez (0-100): ");
         scanf("%d",&cancion_prueba.liveness);
-        printf("Mes de lanzamiento: ");
+        printf("Mes de lanzamiento (1-12): ");
         scanf("%d",&cancion_prueba.release_month);
-        printf("Clave: ");
+        printf("Clave (): ");
         scanf("%s",cancion_prueba.key);
-        printf("Modo: ");
+        printf("Modo (Major o Minor): ");
         scanf("%s",cancion_prueba.mode);
 
         //exito = knn();
