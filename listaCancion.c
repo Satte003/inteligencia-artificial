@@ -4,28 +4,28 @@
 #include "listaCancion.h"
 
 void nuevaLista (listaCancion * c){
-    c->ini=NULL;
-    c->fin=NULL;
+    c->ini = NULL;
+    c->fin = NULL;
 }
 
 bool esVaciaLista (listaCancion c){
-    return(c.ini==NULL);
+    return(c.ini == NULL);
 }
 
 void añadirInicio (listaCancion *c, tipoelemento elem, bool exito){
     Nodo *aux;
     aux = (Nodo *)malloc(sizeof(Nodo));
 
-    aux->elem=elem;
-    aux->exito=exito;
+    aux->elem = elem;
+    aux->exito = exito;
 
     if(esVaciaLista(*c)){
-        aux->sig=NULL;
-        c->ini=aux;
-        c->fin=aux;
+        aux->sig = NULL;
+        c->ini = aux;
+        c->fin = aux;
     } else {
-        aux->sig=c->ini;
-        c->ini=aux;
+        aux->sig = c->ini;
+        c->ini = aux;
     }
 }
 
@@ -33,16 +33,16 @@ void añadirFinal (listaCancion *c, tipoelemento elem, bool exito){
     Nodo *aux;
     aux = (Nodo *)malloc(sizeof(Nodo));
 
-    aux->elem=elem;
-    aux->exito=exito;
-    aux->sig=NULL; 
+    aux->elem = elem;
+    aux->exito = exito;
+    aux->sig = NULL; 
 
     if(esVaciaLista(*c)){
-        c->ini=aux;
-        c->fin=aux;
+        c->ini = aux;
+        c->fin = aux;
     } else {
-        c->fin->sig=aux;
-        c->fin=aux;
+        c->fin->sig = aux;
+        c->fin = aux;
     }
 }
 
@@ -52,12 +52,12 @@ void desenlistarInicio (listaCancion *c){
         printf("ERROR: Intentando desenlistar el primer elemento de una lista vacia.\n");
         exit(-1);
     } else {
-        aux=c->ini;
-        c->ini=c->ini->sig;
+        aux = c->ini;
+        c->ini = c->ini->sig;
         free(aux);
 
         if(esVaciaLista(*c)){
-            c->fin=NULL;
+            c->fin = NULL;
         }
     }
 }
@@ -84,7 +84,7 @@ tipoelemento introducirElemento (){
     tipoelemento cancion;
 	nuevaCancion(&cancion);
     bool existe;
-    existe=false;
+    existe = false;
 
     /*do{
         do {
@@ -107,32 +107,32 @@ tipoelemento introducirElemento (){
     do{
         printf("Introduce los beats por minuto de la cancion (bpm): ");
         scanf("%d", &cancion.bpm);
-    } while (cancion.bpm<=0);
+    } while (cancion.bpm <= 0);
 
     do{
         printf("Introduce el porcentaje de bailabilidad de la cancion (danceability) ");
         scanf("%d", &cancion.danceability);
-    } while (cancion.danceability<0 && cancion.danceability>100);
+    } while (cancion.danceability < 0 && cancion.danceability > 100);
 
     do{
         printf("Introduce el porcentaje de positividad de la cancion (valence): ");
         scanf("%d", &cancion.valence);
-    } while (cancion.valence<0 && cancion.valence>100);
+    } while (cancion.valence < 0 && cancion.valence > 100);
     
     do{
         printf("Introduce el porcentaje de nivel de energia de la cancion (energy): ");
         scanf("%d", &cancion.energy);
-    } while (cancion.energy<0 && cancion.energy>100);
+    } while (cancion.energy < 0 && cancion.energy > 100);
 
     do{
         printf("Introduce el porcentaje de presencia acustica de la cancion (acousticness): ");
         scanf("%d", &cancion.acousticness);
-    } while (cancion.acousticness<0 && cancion.acousticness>100);
+    } while (cancion.acousticness < 0 && cancion.acousticness > 100);
     
     do{
         printf("Introduce el porcentaje de elementos en directo de la cancion (liveness): ");
         scanf("%d", &cancion.liveness);
-    } while (cancion.liveness<0 && cancion.liveness>100);
+    } while (cancion.liveness < 0 && cancion.liveness > 100);
 
     return(cancion);
 }
@@ -142,22 +142,22 @@ bool buscarPorElemento (listaCancion c, tipoelemento elem){
     bool exito, encontrado;
 
     recorrido = (Nodo *)malloc(sizeof(Nodo));
-    recorrido=c.ini;
-    encontrado=false;
+    recorrido = c.ini;
+    encontrado = false;
 
     if(esVaciaLista(c)){
         printf("ERROR: Intentando buscar un elemento de una lista vacia, dado el elemento.\n");
         exit(-1);
     } else {
         while(recorrido!=NULL && !encontrado){
-            if(recorrido->elem.bpm!=elem.bpm || recorrido->elem.acousticness!=elem.acousticness || recorrido->elem.danceability!=elem.danceability || recorrido->elem.energy!=elem.energy || recorrido->elem.liveness!=elem.liveness || recorrido->elem.valence!=elem.valence){
+            if(recorrido->elem.bpm != elem.bpm || recorrido->elem.acousticness != elem.acousticness || recorrido->elem.danceability != elem.danceability || recorrido->elem.energy != elem.energy || recorrido->elem.liveness != elem.liveness || recorrido->elem.valence != elem.valence){
                recorrido=recorrido->sig; 
             } else {
                 encontrado = true;
             }
         }
 
-        if(recorrido!=NULL){
+        if(recorrido != NULL){
             if(encontrado){
                 return(recorrido->exito);
             } else {
@@ -176,10 +176,10 @@ tipoelemento buscarPorPosicion (listaCancion c, int posicion){
     int i;
 
     recorrido = (Nodo *)malloc(sizeof(Nodo));
-    recorrido=c.ini;
+    recorrido = c.ini;
 
     for(i=0; i<posicion-2; i++){
-        recorrido=recorrido->sig;
+        recorrido = recorrido->sig;
     }
     return(recorrido->elem);
 }

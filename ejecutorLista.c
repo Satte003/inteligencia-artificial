@@ -9,7 +9,7 @@ int main(){
 	int opcion;
 	bool exito;
 
-	exito=false;
+	exito = false;
 	nuevaLista(&lista);
 	do
     {
@@ -24,24 +24,24 @@ int main(){
 		scanf("%d",&opcion);
 		switch(opcion){           
 			case 1: 
-				elem=introducirElemento();
+				elem = introducirElemento();
 				añadirInicio(&lista,elem,exito);
 				break;
 			case 2: 
-				elem=introducirElemento();
+				elem = introducirElemento();
 				añadirFinal(&lista,elem,exito);
 				break;
 			case 3:
 				desenlistarInicio(&lista);
 				break;
             case 4:
-				elem=primero(lista);
+				elem = primero(lista);
                 imprimirElemento(elem);
 				break;
             case 5:
-                elem=ultimo(lista);
+                elem = ultimo(lista);
                 imprimirElemento(elem);
 				break;
 		}
-	}while(opcion<6);
+	}while(opcion < 6);
 }

@@ -37,5 +37,4 @@ int compararMeses1(int mes1, int mes2){        // DEFINIR PI
         diferencia_angular = 2 * PI - diferencia_angular;  // Escojemos la diferencia angular mas pequeña
 
     return (int)((diferencia_angular / PI) * importancia); // Devuelve la diferencia angular convertida a una escala del 0 a importancia
-
 }

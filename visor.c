@@ -8,7 +8,7 @@ void imprimirElemento(tipoelemento);
 int main(){
 	listaCancion datos;
     tipoelemento elem;
-    int opcion,posicion;
+    int opcion, posicion;
     bool exito;
 
 	nuevaLista(&datos);
@@ -25,17 +25,17 @@ int main(){
 		scanf("%d",&opcion);
 		switch(opcion){           
             case 1:
-				elem=primero(datos);
+				elem = primero(datos);
                 imprimirElemento(elem);
 				break;
             case 2:
-                elem=ultimo(datos);
+                elem = ultimo(datos);
                 imprimirElemento(elem);
 				break;
             case 3:
-                elem=introducirElemento();
-                elem.bpm=normalizarBPM(elem.bpm);
-                exito=buscarPorElemento(datos, elem);
+                elem = introducirElemento();
+                elem.bpm = normalizarBPM(elem.bpm);
+                exito = buscarPorElemento(datos, elem);
                 if(exito){
                     printf("La cancion introducida seria un exito.\n");
                 } else {
@@ -44,11 +44,11 @@ int main(){
             case 4:
                 printf("Introduce la posicion en el dataset del elemento: ");
                 scanf("%d", &posicion);
-                elem=buscarPorPosicion(datos,posicion);
+                elem = buscarPorPosicion(datos,posicion);
                 imprimirElemento(elem);
                 
 		}
-	}while(opcion<5);
+	}while(opcion < 5);
 }
 
 void imprimirElemento(tipoelemento elem){
@@ -58,5 +58,4 @@ void imprimirElemento(tipoelemento elem){
     printf("Energy: %d\n", elem.energy);
     printf("Acousticness: %d\n", elem.acousticness);
     printf("Liveness: %d\n", elem.liveness);
-
 }

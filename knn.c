@@ -5,9 +5,9 @@
 float calcularDistancia(cancion c1, tipoelemento c2) {
     float distancia = 0.0;
     
-    distancia += pow(compararB1(c1.key,c2.key),2);                           // 
-    distancia += pow(compararB1(c1.mode,c2.mode),2);                         // IMPORTANCIA VARIABLE (en la funcion)
-    distancia += pow(compararMeses1(c1.release_month, c2.release_month),2);  //  
+    distancia += pow(compararB1(c1.key,c2.key), 2);                           // 
+    distancia += pow(compararB1(c1.mode,c2.mode), 2);                         // IMPORTANCIA VARIABLE (en la funcion)
+    distancia += pow(compararMeses1(c1.release_month, c2.release_month), 2);  //  
     distancia += pow(c1.bpm - c2.bpm, 2);  
     distancia += pow(c1.danceability - c2.danceability, 2);  
     distancia += pow(c1.valence - c2.valence, 2);  
@@ -53,5 +53,5 @@ bool knn(listaCancion *lista, cancion cancionBuscar) {
             exitoCount++; 
         }
     }
-    return (exitoCount > K / 2);  // Si más de la mitad de los vecinos son éxitos, es un éxito
+    return (exitoCount > K/2);  // Si más de la mitad de los vecinos son éxitos, es un éxito
 }

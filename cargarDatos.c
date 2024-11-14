@@ -7,11 +7,11 @@ void cargarDatos (listaCancion *lista){
 
     cancion = (Nodo *)malloc(sizeof(Nodo));
 
-    f=fopen("Spotify.csv", "r");
+    f = fopen("Spotify.csv", "r");
 
     printf("Cargando datos, por favor no detenga el programa...\n");
 
-    cancion->sig=NULL;
+    cancion->sig = NULL;
 
     if(!feof(f)){
         saltarLinea(f);
@@ -30,7 +30,7 @@ void cargarDatos (listaCancion *lista){
 }
 
 void leerLinea(FILE *f, Nodo *cancion){
-    int playlist=-1, chart=-1, stream=-1, i, lectura;
+    int playlist = -1, chart = -1, stream = -1, i, lectura;
     bool exito;
     
     if(!feof(f)){
