@@ -1,16 +1,19 @@
-#include "listaCancion.h"
-#include "cancion.h"
+    #include <stdio.h>
+    #include <math.h>
+    #include "guardarEnArray.h"
+    #include "esExito.h"
 
-#define K 5  // Aquí defines el valor de K, el número de vecinos más cercanos que se tomarán en cuenta
+    #define K 5
+    #define N 954
+    typedef cancion lista[N];
 
-// Estructura para almacenar la distancia y la clasificación (éxito) de cada canción
-typedef struct vecino {
-    float distancia;  // Distancia de la canción al vecino
-    bool exito;      // Si la canción es un éxito o no (true si es éxito, false si no lo es)
-} vecino;
+    typedef struct vecino {
+        float distancia;  
+        bool exito;
+    } vecino;
 
-// Función para calcular la distancia Euclidiana entre dos canciones
-float calcularDistancia(cancion, tipoelemento);
+    float calcularDistancia(cancion, cancion);
 
-// Función que implementa el algoritmo KNN
-bool knn(listaCancion *, cancion);
+    bool knn(cancion[954], cancion, int, bool);
+
+    void escojerDistanciasMenores(vecino[N], vecino[K]);

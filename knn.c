@@ -1,57 +1,59 @@
-#include <stdio.h>
-#include <math.h>
 #include "knn.h"
 
-float calcularDistancia(cancion c1, tipoelemento c2) {
+float calcularDistancia(cancion c1, cancion c2) {
     float distancia = 0.0;
     
-    distancia += pow(compararB1(c1.key,c2.key),2);                           // 
-    distancia += pow(compararB1(c1.mode,c2.mode),2);                         // IMPORTANCIA VARIABLE (en la funcion)
-    distancia += pow(compararMeses1(c1.release_month, c2.release_month),2);  //  
+    distancia += pow(compararB1(c1.key,c2.key),2);                               
+    distancia += pow(compararB1(c1.mode,c2.mode),2);                             
+    distancia += pow(compararMeses1(c1.release_month, c2.release_month),2);       
     distancia += pow(c1.bpm - c2.bpm, 2);  
-    distancia += pow(c1.danceability - c2.danceability, 2);  
-    distancia += pow(c1.valence - c2.valence, 2);  
+    distancia += pow(c1.danceability - c2.danceability, 2);
+    distancia += pow(c1.valence - c2.valence, 2); 
     distancia += pow(c1.energy - c2.energy, 2);  
-    distancia += pow(c1.acousticness - c2.acousticness, 2);  
-    distancia += pow(c1.liveness - c2.liveness, 2);  
+    distancia += pow(c1.acousticness - c2.acousticness, 2);
+    distancia += pow(c1.liveness - c2.liveness, 2);
+    distancia += pow(c1.cantidad_artistas - c2.cantidad_artistas, 2);
     return sqrt(distancia);
 }
 
-bool knn(listaCancion *lista, cancion cancionBuscar) {
-    Nodo *actual = lista->ini;  
-    vecino vecinos[K];  // Lista de vecinos para almacenar las distancias y el éxito de las canciones más cercanas acorde al tamaño de K 
-
-    // Inicializamos los vecinos con una distancia muy grande (para que cualquier canción sea más cercana)
+void escojerDistanciasMenores(vecino lista_todos_vecinos[N], vecino distancias_mas_cortas[K]) {
     for (int i = 0; i < K; i++) {
-        vecinos[i].distancia = 100000000;  
+        distancias_mas_cortas[i].distancia = INFINITY;
     }
-
-    // Recorre la lista de canciones
-    while (actual != NULL) {
-
-        float distancia = calcularDistancia(cancionBuscar, actual->elem);
-        
-        // Recorre los vecinos para encontrar el lugar adecuado donde insertar la nueva canción
+    
+    for (int j = 0; j < N; j++) {
         for (int i = 0; i < K; i++) {
-            // Si la distancia calculada es menor que la distancia de un vecino lo desplaza para hacer espacio para el nuevo
-            if (distancia < vecinos[i].distancia) {
-                for (int j = K - 1; j > i; j--) {
-                    vecinos[j] = vecinos[j - 1];
+            if (lista_todos_vecinos[j].distancia < distancias_mas_cortas[i].distancia) {
+                for (int k = K - 1; k > i; k--) {
+                    distancias_mas_cortas[k] = distancias_mas_cortas[k - 1];
                 }
-                vecinos[i].distancia = distancia;
-                vecinos[i].exito = actual->exito;
-                break;
+                distancias_mas_cortas[i] = lista_todos_vecinos[j];
             }
+            break;
         }
-        actual = actual->sig;
+    }
+}
+
+bool knn(cancion lista[954], cancion cancionBuscar, int cancion_prueba, bool definitivo) {
+    vecino vecinos_cercanos[K];  
+    vecino lista_vecinos[N];  
+
+    for(int i = 0; i < N; i++){
+        lista_vecinos[i].distancia = calcularDistancia(cancionBuscar, lista[i]);
+        lista_vecinos[i].exito = esExito(lista[i].playlists, lista[i].charts, lista[i].streams);
+    }
+    
+    if(!definitivo){
+        lista_vecinos[cancion_prueba].distancia = INFINITY;
     }
 
-    // Cuenta cuántos de los K vecinos son éxitos (exito = true)
+    escojerDistanciasMenores(lista_vecinos,vecinos_cercanos);
+
     int exitoCount = 0;
     for (int i = 0; i < K; i++) {
-        if (vecinos[i].exito) {
+        if (vecinos_cercanos[i].exito) {
             exitoCount++; 
         }
     }
-    return (exitoCount > K / 2);  // Si más de la mitad de los vecinos son éxitos, es un éxito
+    return (exitoCount > (K / 2)); 
 }
