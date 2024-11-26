@@ -3,9 +3,15 @@
 float calcularDistancia(cancion c1, cancion c2) {
     float distancia = 0.0;
     
+<<<<<<< HEAD
     distancia += pow(compararB1(c1.key,c2.key),2);                               
     distancia += pow(compararB1(c1.mode,c2.mode),2);                             
     distancia += pow(compararMeses1(c1.release_month, c2.release_month),2);       
+=======
+    distancia += pow(compararB1(c1.key,c2.key), 2);                           // 
+    distancia += pow(compararB1(c1.mode,c2.mode), 2);                         // IMPORTANCIA VARIABLE (en la funcion)
+    distancia += pow(compararMeses1(c1.release_month, c2.release_month), 2);  //  
+>>>>>>> ded7c5e1f9631213d512732d7bbfd75b17296cbc
     distancia += pow(c1.bpm - c2.bpm, 2);  
     distancia += pow(c1.danceability - c2.danceability, 2);
     distancia += pow(c1.valence - c2.valence, 2); 
@@ -55,5 +61,9 @@ bool knn(cancion lista[954], cancion cancionBuscar, int cancion_prueba, bool def
             exitoCount++; 
         }
     }
+<<<<<<< HEAD
     return (exitoCount > (K / 2)); 
+=======
+    return (exitoCount > K/2);  // Si más de la mitad de los vecinos son éxitos, es un éxito
+>>>>>>> ded7c5e1f9631213d512732d7bbfd75b17296cbc
 }

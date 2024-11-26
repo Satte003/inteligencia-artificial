@@ -26,6 +26,10 @@ int compararMeses1(int mes1, int mes2){
     if (diferencia_angular > PI)
         diferencia_angular = 2 * PI - diferencia_angular;
 
+<<<<<<< HEAD
     return (int)((diferencia_angular / PI) * importancia);
 
+=======
+    return (int)((diferencia_angular / PI) * importancia); // Devuelve la diferencia angular convertida a una escala del 0 a importancia
+>>>>>>> ded7c5e1f9631213d512732d7bbfd75b17296cbc
 }

@@ -12,6 +12,7 @@ int main(){
     float porcentaje;
 
     do{
+<<<<<<< HEAD
 
         guardarEnArray(dataset);
 
@@ -62,6 +63,40 @@ int main(){
         printf("\nQuieres repetir la ejecucion? (s/n): ");
         scanf(" %c", &respuesta1);
     } while(respuesta1 == 's');
+=======
+        
+        printf("BPM: ");
+        scanf("%d",&cancion_prueba.bpm);
+        printf("Danzabilidad (0-100): ");
+        scanf("%d",&cancion_prueba.danceability);
+        printf("Valencia (0-100): ");
+        scanf("%d",&cancion_prueba.valence);
+        printf("Energia (0-100): ");
+        scanf("%d",&cancion_prueba.energy);
+        printf("Acusticidad (0-100): ");
+        scanf("%d",&cancion_prueba.acousticness);
+        printf("Vividez (0-100): ");
+        scanf("%d",&cancion_prueba.liveness);
+        printf("Mes de lanzamiento (1-12): ");
+        scanf("%d",&cancion_prueba.release_month);
+        printf("Clave (): ");
+        scanf("%s",cancion_prueba.key);
+        printf("Modo (Major o Minor): ");
+        scanf("%s",cancion_prueba.mode);
+
+        exito = knn();
+        //exito = true; // para probar
+
+        if (exito){
+            printf("La canción sera exitosa.");
+        } else {
+            printf("La canción no sera exitosa");
+        }
+
+        printf("¿Quieres repetir la ejecucion? (s/n)\n");
+        scanf(" %c", &respuesta);
+    } while(respuesta == 's');
+>>>>>>> ded7c5e1f9631213d512732d7bbfd75b17296cbc
 
     return 0;
 }
